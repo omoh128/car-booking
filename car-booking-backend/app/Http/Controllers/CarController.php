@@ -10,8 +10,8 @@ class CarController extends Controller
     // Get all cars
     public function index()
     {
-        $cars = Car::all();
-        return response()->json($cars);
+    $cars = Car::paginate(10); // Fetch 10 cars per page
+     return response()->json($cars);
     }
 
     // Get a single car by ID
