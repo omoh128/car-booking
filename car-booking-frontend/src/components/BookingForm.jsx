@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import './BookingForm.css';  // Import the CSS file
+import './BookingForm.css';
 
 const BookingForm = () => {
     const { id } = useParams();
@@ -14,11 +14,12 @@ const BookingForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/bookings', formData, {
+        axios.post('http://localhost:8000/bookings', formData, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         })
+        
             .then(response => {
                 alert('Booking successful!');
                 navigate('/bookings');

@@ -15,31 +15,12 @@ return [
     | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
     |
     */
-
-   'paths' => [
-        'api/*',
-        'sanctum/csrf-cookie',
-        'login',
-        'register',
-    ],
-
-    'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-
-    'allowed_origins' => [
-        'http://localhost:3000', // React frontend (development)
-        'https://staging.example.com', // Staging environment
-        'https://example.com', // Production environment
-    ],
-
-    'allowed_origins_patterns' =>  ['http://localhost:3000'],
-
-    'allowed_headers' => ['Content-Type', 'Authorization', 'X-Requested-With'],
-
+    'paths' => ['*'],
+    'allowed_methods' => ['*'],
+    'allowed_origins' => ['http://localhost:3000'],
+    'allowed_origins_patterns' => [],
+    'allowed_headers' => ['*'],
     'exposed_headers' => [],
-
     'max_age' => 0,
-
-    'supports_credentials' => true, // Enable if using cookies or authentication headers
-
-
+    'supports_credentials' => false,
 ];

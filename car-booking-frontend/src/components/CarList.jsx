@@ -5,8 +5,8 @@ const CarList = () => {
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/cars?page=1')
-            .then(response => setCars(response.data.data)) // Access paginated data
+        axios.get('http://localhost:8000/cars')
+            .then(response => setCars(response.data.data))
             .catch(error => console.error(error));
     }, []);
 

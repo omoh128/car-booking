@@ -11,7 +11,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // Exempt routes from CSRF verification:
+        $middleware->validateCsrfTokens([
+            'bookings',
+            'bookings/*',
+        ]);
+        // You can add other middleware configuration here if needed.
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
